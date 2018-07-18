@@ -1,0 +1,16 @@
+.cell-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell-wrapper:hover {
+  background-color: #7caeff;
+  cursor: pointer;
+}
+
+.cell-wrapper:active {
+  background-color: #aacaff;
+}
