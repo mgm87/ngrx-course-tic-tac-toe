@@ -14,3 +14,48 @@
 .cell-wrapper:active {
   background-color: #aacaff;
 }
+
+.red:after {
+  content: "";
+  position: relative;
+  width: calc(100% - 8em);
+  height: calc(100% - 8em);
+  border: 2em solid red;
+  border-radius: calc(100% - 8em);
+  max-width: calc(25vh);
+  max-height: calc(25vw);
+}
+
+.blue {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.blue:after {
+  content: '';
+  position: absolute;
+  height: 2em;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #000;
+  transform: rotate(45deg);
+  background-color: blue;
+}
+
+.blue:before {
+  content: '';
+  position: absolute;
+  height: 2em;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #000;
+  transform: rotate(-45deg);
+  background-color: blue;
+}
