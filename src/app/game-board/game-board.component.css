@@ -1,3 +1,19 @@
+.winner-text-wrapper {
+  font-size: 3em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.blue-text {
+  color: blue;
+}
+
+.red-text {
+  color: red;
+}
+
 .game-board-wrapper {
   height: calc(100vh - 32px);
   display: flex;

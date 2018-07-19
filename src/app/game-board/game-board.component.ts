@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { ScoreService } from '../services';
 
 @Component({
   selector: 'app-game-board',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-board.component.css']
 })
 export class GameBoardComponent implements OnInit {
+  winner: Observable<string>;
 
-  constructor() { }
+  constructor(private scoreService: ScoreService) {}
 
   ngOnInit() {
+    this.winner = this.scoreService.winningPlayer;
   }
 
 }

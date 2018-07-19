@@ -1,36 +1,41 @@
+<div *ngIf="(winner | async) !== ''" class="winner-text-wrapper">
+  <div [ngClass]="{'blue-text': (winner | async) === 'Blue', 'red-text': (winner | async) === 'Red'}">
+    {{winner | async}} Wins!
+  </div>
+</div>
 <div class="game-board-wrapper">
   <div class="game-board">
     <div class="row row-bottom-border">
       <div class="cell cell-right-border">
-        <app-cell></app-cell>
+        <app-cell [position]="0"></app-cell>
       </div>
       <div class="cell cell-right-border">
-        <app-cell></app-cell>
+        <app-cell [position]="1"></app-cell>
       </div>
       <div class="cell">
-        <app-cell></app-cell>
+        <app-cell [position]="2"></app-cell>
       </div>
     </div>
     <div class="row row-bottom-border">
       <div class="cell cell-right-border">
-        <app-cell></app-cell>
+        <app-cell [position]="3"></app-cell>
       </div>
       <div class="cell cell-right-border">
-        <app-cell></app-cell>
+        <app-cell [position]="4"></app-cell>
       </div>
       <div class="cell">
-        <app-cell></app-cell>
+        <app-cell [position]="5"></app-cell>
       </div>
     </div>
     <div class="row">
       <div class="cell cell-right-border">
-        <app-cell></app-cell>
+        <app-cell [position]="6"></app-cell>
       </div>
       <div class="cell cell-right-border">
-        <app-cell></app-cell>
+        <app-cell [position]="7"></app-cell>
       </div>
       <div class="cell">
-        <app-cell></app-cell>
+        <app-cell [position]="8"></app-cell>
       </div>
     </div>
   </div>
