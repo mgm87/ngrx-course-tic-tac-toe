@@ -16,7 +16,6 @@ export class CellComponent implements OnInit {
   @Output() cellClicked = new EventEmitter<number>();
   @ViewChild('cell') cell;
   display = '';
-  players = Players;
   blue = false;
   red = false;
 
@@ -29,7 +28,7 @@ export class CellComponent implements OnInit {
       )
       .subscribe((click) => {
         this.cellClicked.emit(this.position);
-        if (this.player === this.players.RED) {
+        if (this.player === Players.RED) {
           this.red = true;
         } else {
           this.blue = true;
