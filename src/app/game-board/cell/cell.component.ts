@@ -3,7 +3,6 @@ import { fromEvent } from 'rxjs';
 import { take } from 'rxjs/operators';
 
 import { Players } from '../../+state/game.reducer';
-import { ScoreService } from '../../services';
 
 @Component({
   selector: 'app-cell',
@@ -19,7 +18,7 @@ export class CellComponent implements OnInit {
   blue = false;
   red = false;
 
-  constructor(private scoreService: ScoreService) { }
+  constructor() { }
 
   ngOnInit() {
     fromEvent(this.cell.nativeElement, 'click')
@@ -34,7 +33,6 @@ export class CellComponent implements OnInit {
           this.blue = true;
         }
         this.display = 'clicked';
-        this.scoreService.updateBoard(this.position, this.player);
       });
   }
 

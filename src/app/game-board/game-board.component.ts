@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { ScoreService } from '../services';
 import { CellClicked } from '../+state/game.actions';
 import { GameState, Players } from '../+state/game.reducer';
 import { gameQuery } from '../+state/game.selectors';
@@ -13,14 +12,14 @@ import { gameQuery } from '../+state/game.selectors';
   styleUrls: ['./game-board.component.css']
 })
 export class GameBoardComponent implements OnInit {
-  winner: Observable<string>;
+  winner$: Observable<Players | false>;
   currentPlayer$: Observable<Players>;
 
-  constructor(private scoreService: ScoreService, private store: Store<GameState>) {}
+  constructor(private store: Store<GameState>) {}
 
   ngOnInit() {
     this.currentPlayer$ = this.store.pipe(select(gameQuery.getCurrentPlayer));
-    this.winner = this.scoreService.winningPlayer;
+    this.winner$ = this.store.pipe(select(gameQuery.getWinner));
   }
 
   cellClicked(position: number) {

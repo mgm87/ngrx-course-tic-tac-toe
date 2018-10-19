@@ -1,6 +1,6 @@
-<div *ngIf="(winner | async) !== ''" class="winner-text-wrapper">
-  <div [ngClass]="{'blue-text': (winner | async) === 'Blue', 'red-text': (winner | async) === 'Red'}">
-    {{winner | async}} Wins!
+<div *ngIf="winner$ | async" class="winner-text-wrapper">
+  <div [ngClass]="{'blue-text': (winner$ | async) === 'Blue', 'red-text': (winner$ | async) === 'Red'}">
+    {{winner$ | async}} Wins!
   </div>
 </div>
 <div class="game-board-wrapper">

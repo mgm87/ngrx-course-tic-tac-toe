@@ -7,7 +7,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppComponent } from './app.component';
 import { GameBoardComponent } from './game-board/game-board.component';
 import { CellComponent } from './game-board/cell/cell.component';
-import { ScoreService } from './services';
 import {
   initialState as gameInitialState,
   gameReducer
@@ -31,7 +30,7 @@ import {
     ),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
-  providers: [ScoreService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
