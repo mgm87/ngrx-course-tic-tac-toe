@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -11,6 +11,7 @@ import { CellService, ScoreService } from '../../services';
 })
 export class CellComponent implements OnInit {
   @Input() position: number;
+  @Output() cellClicked = new EventEmitter<number>();
   @ViewChild('cell') cell;
   display = '';
   blue = false;
@@ -24,6 +25,7 @@ export class CellComponent implements OnInit {
         take(1)
       )
       .subscribe((click) => {
+        this.cellClicked.emit(this.position);
         const turn = this.cellService.getPlayer();
         let player = '';
         if (turn === 'red') {

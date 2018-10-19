@@ -7,35 +7,35 @@
   <div class="game-board">
     <div class="row row-bottom-border">
       <div class="cell cell-right-border">
-        <app-cell [position]="0"></app-cell>
+        <app-cell [position]="0" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
       <div class="cell cell-right-border">
-        <app-cell [position]="1"></app-cell>
+        <app-cell [position]="1" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
       <div class="cell">
-        <app-cell [position]="2"></app-cell>
+        <app-cell [position]="2" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
     </div>
     <div class="row row-bottom-border">
       <div class="cell cell-right-border">
-        <app-cell [position]="3"></app-cell>
+        <app-cell [position]="3" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
       <div class="cell cell-right-border">
-        <app-cell [position]="4"></app-cell>
+        <app-cell [position]="4" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
       <div class="cell">
-        <app-cell [position]="5"></app-cell>
+        <app-cell [position]="5" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
     </div>
     <div class="row">
       <div class="cell cell-right-border">
-        <app-cell [position]="6"></app-cell>
+        <app-cell [position]="6" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
       <div class="cell cell-right-border">
-        <app-cell [position]="7"></app-cell>
+        <app-cell [position]="7" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
       <div class="cell">
-        <app-cell [position]="8"></app-cell>
+        <app-cell [position]="8" (cellClicked)="cellClicked($event)"></app-cell>
       </div>
     </div>
   </div>
