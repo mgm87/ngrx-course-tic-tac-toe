@@ -2,7 +2,8 @@ import { Component, Input, OnInit, Output, ViewChild, EventEmitter } from '@angu
 import { fromEvent } from 'rxjs';
 import { take } from 'rxjs/operators';
 
-import { CellService, ScoreService } from '../../services';
+import { Players } from '../../+state/game.reducer';
+import { ScoreService } from '../../services';
 
 @Component({
   selector: 'app-cell',
@@ -11,13 +12,15 @@ import { CellService, ScoreService } from '../../services';
 })
 export class CellComponent implements OnInit {
   @Input() position: number;
+  @Input() player: Players;
   @Output() cellClicked = new EventEmitter<number>();
   @ViewChild('cell') cell;
   display = '';
+  players = Players;
   blue = false;
   red = false;
 
-  constructor(private cellService: CellService, private scoreService: ScoreService) { }
+  constructor(private scoreService: ScoreService) { }
 
   ngOnInit() {
     fromEvent(this.cell.nativeElement, 'click')
@@ -26,17 +29,13 @@ export class CellComponent implements OnInit {
       )
       .subscribe((click) => {
         this.cellClicked.emit(this.position);
-        const turn = this.cellService.getPlayer();
-        let player = '';
-        if (turn === 'red') {
+        if (this.player === this.players.RED) {
           this.red = true;
-          player = 'Red';
         } else {
           this.blue = true;
-          player = 'Blue';
         }
         this.display = 'clicked';
-        this.scoreService.updateBoard(this.position, player);
+        this.scoreService.updateBoard(this.position, this.player);
       });
   }
 

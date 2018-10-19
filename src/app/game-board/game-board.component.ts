@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 
 import { ScoreService } from '../services';
 import { CellClicked } from '../+state/game.actions';
-import { GameState } from '../+state/game.reducer';
+import { GameState, Players } from '../+state/game.reducer';
+import { gameQuery } from '../+state/game.selectors';
 
 @Component({
   selector: 'app-game-board',
@@ -13,10 +14,12 @@ import { GameState } from '../+state/game.reducer';
 })
 export class GameBoardComponent implements OnInit {
   winner: Observable<string>;
+  currentPlayer$: Observable<Players>;
 
   constructor(private scoreService: ScoreService, private store: Store<GameState>) {}
 
   ngOnInit() {
+    this.currentPlayer$ = this.store.pipe(select(gameQuery.getCurrentPlayer));
     this.winner = this.scoreService.winningPlayer;
   }
 
